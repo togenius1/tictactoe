@@ -4,6 +4,7 @@ Tic Tac Toe Player .
 
 import math
 import copy
+import numpy as np
 
 X = "X"
 O = "O"
@@ -22,13 +23,14 @@ def initial_state():
 def player(board):
     """
     Returns player who has the next turn on a board.
+    Specification: In the initial game state, X gets the first move. 
     """
     x_count = sum(row.count(X) for row in board)
     o_count = sum(row.count(O) for row in board)
     if x_count == o_count:
         return X
     else:
-            return O
+        return O
 
 
 def actions(board):
@@ -143,5 +145,3 @@ def minimax(board):
             best_value = value
 
     return best_action
-
-
